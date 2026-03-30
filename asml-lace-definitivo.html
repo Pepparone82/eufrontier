@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Europa sta costruendo la prossima ASML?</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --paper: #f7f4ee;
+    --ink: #1a1714;
+    --ink-soft: #3d3830;
+    --ink-muted: #7a7268;
+    --rule: #d4cec4;
+    --accent: #b8460a;
+    --accent-pale: #f2e8e1;
+    --blue: #1e3a5f;
+    --blue-pale: #e8eef5;
+    --green: #2a5e3f;
+    --green-pale: #e5f0ea;
+    --gold: #c89a3a;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.7; font-size: 17px; }
+
+  .masthead { border-bottom: 3px double var(--ink); padding: 24px 0 18px; text-align: center; }
+  .masthead-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+
+  .hero { background: var(--ink); color: var(--paper); padding: 70px 40px 60px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; bottom: 0; right: 0; width: 40%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px); pointer-events: none; }
+  .hero-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-kicker { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .hero-kicker::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 6vw, 68px); font-weight: 300; line-height: 1.05; margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2vw, 19px); font-style: italic; font-weight: 300; color: rgba(247,244,238,0.7); max-width: 580px; border-left: 2px solid var(--gold); padding-left: 20px; line-height: 1.55; }
+  .hero-meta { margin-top: 32px; font-size: 11px; letter-spacing: 0.1em; color: rgba(247,244,238,0.35); text-transform: uppercase; }
+
+  .article-body { max-width: 820px; margin: 0 auto; padding: 0 32px 80px; }
+
+  .opening { padding: 52px 0 48px; border-bottom: 1px solid var(--rule); margin-bottom: 48px; }
+  .opening-lead { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 300; line-height: 1.7; color: var(--ink-soft); margin-bottom: 18px; }
+  .opening-lead::first-letter { font-size: 4.8em; font-weight: 600; float: left; line-height: 0.75; margin-right: 10px; margin-top: 8px; color: var(--accent); }
+  .opening-body { font-size: 17px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 16px; }
+  .disclaimer { background: var(--accent-pale); border-left: 3px solid var(--accent); padding: 16px 20px; margin-top: 28px; }
+  .disclaimer p { font-size: 14px; color: var(--accent); line-height: 1.6; margin: 0; font-weight: 400; }
+  .tesi { margin-top: 20px; font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--blue); border-top: 1px solid var(--rule); padding-top: 20px; }
+
+  .section { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule); opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .section.visible { opacity: 1; transform: translateY(0); }
+  .section:last-of-type { border-bottom: none; }
+  .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; }
+  .section-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--rule); line-height: 1; flex-shrink: 0; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; line-height: 1.2; }
+  .section p { font-size: 17px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 16px; }
+  .section p:last-child { margin-bottom: 0; }
+  .section p strong { color: var(--ink); font-weight: 500; }
+  .section p em { font-style: italic; }
+
+  .pull-quote { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-style: italic; font-weight: 300; line-height: 1.45; color: var(--blue); border-top: 2px solid var(--blue); border-bottom: 2px solid var(--blue); padding: 22px 0; margin: 32px 0; }
+
+  /* BRUSH */
+  .brush-diagram { display: flex; align-items: flex-end; gap: 0; margin: 28px 0 6px; background: white; border: 1px solid var(--rule); padding: 28px 20px 20px; overflow-x: auto; }
+  .brush-col { flex: 1; min-width: 72px; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 0 6px; position: relative; }
+  .brush-col:not(:last-child)::after { content: '→'; position: absolute; right: -8px; bottom: 48px; color: var(--rule); font-size: 14px; }
+  .brush-tip { border-radius: 1px 1px 30% 30%; background: var(--blue); width: 100%; }
+  .brush-col:last-child .brush-tip { background: var(--green); }
+  .brush-era { font-size: 10px; color: var(--ink-muted); text-align: center; font-weight: 400; line-height: 1.3; }
+  .brush-nm { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; text-align: center; color: var(--ink); }
+  .brush-col:last-child .brush-nm { color: var(--green); }
+  .diagram-caption { font-size: 12px; color: var(--ink-muted); font-style: italic; }
+
+  /* STAT GRID */
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 28px 0; }
+  .stat-cell { background: var(--paper); padding: 22px 18px; text-align: center; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--accent); display: block; line-height: 1; margin-bottom: 8px; }
+  .stat-label { font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
+
+  /* COMPETITOR - EDITORIALE */
+  .competitor-list { margin: 24px 0; }
+  .competitor-row { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .competitor-row:first-child { border-top: 1px solid var(--rule); }
+  .competitor-row.lace { background: var(--green-pale); padding: 20px 18px; margin: 0 -18px; }
+  .competitor-flag { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); min-width: 80px; padding-top: 3px; flex-shrink: 0; }
+  .competitor-row.lace .competitor-flag { color: var(--green); }
+  .competitor-body { flex: 1; }
+  .competitor-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--ink); margin-bottom: 5px; line-height: 1.2; }
+  .competitor-row.lace .competitor-name { color: var(--green); }
+  .competitor-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+  .competitor-funding { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; white-space: nowrap; align-self: flex-start; margin-top: 4px; flex-shrink: 0; }
+  .tag-us { background: #dde8f5; color: var(--blue); }
+  .tag-jp { background: #f5e8dd; color: #7a3e0a; }
+  .tag-cn { background: #f5dddd; color: #7a0a0a; }
+  .tag-eu { background: var(--green-pale); color: var(--green); }
+
+  /* BRIDGE */
+  .bridge-box { background: var(--blue); color: var(--paper); padding: 24px 28px; margin: 28px 0 0; }
+  .bridge-box p { font-size: 15px; line-height: 1.7; color: rgba(247,244,238,0.85); margin: 0; }
+  .bridge-box p strong { color: var(--paper); font-weight: 500; }
+
+  /* LOOP */
+  .loop-diagram { display: flex; align-items: center; justify-content: center; gap: 0; margin: 28px 0 6px; flex-wrap: wrap; background: var(--ink); padding: 24px; }
+  .loop-node { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--paper); padding: 12px 16px; font-size: 13px; font-weight: 400; text-align: center; line-height: 1.4; min-width: 110px; }
+  .loop-node.highlight { background: var(--gold); border-color: var(--gold); color: var(--ink); font-weight: 500; }
+  .loop-arrow { color: rgba(255,255,255,0.3); font-size: 18px; padding: 0 6px; }
+
+  /* RISCHI NARRATIVI */
+  .rischi-wrap { margin: 28px 0; border-left: 3px solid var(--accent); padding-left: 24px; }
+  .rischio-item { margin-bottom: 28px; }
+  .rischio-item:last-child { margin-bottom: 0; }
+  .rischio-label { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+  .rischio-text { font-size: 16px; line-height: 1.75; color: var(--ink-soft); }
+
+  /* DEALROOM */
+  .dealroom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 24px 0; }
+  .dealroom-cell { padding: 20px 18px; background: var(--paper); }
+  .dealroom-cell.pos { background: var(--green-pale); }
+  .dealroom-cell.neg { background: var(--accent-pale); }
+  .dealroom-sublabel { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; margin-bottom: 8px; }
+  .dealroom-cell.pos .dealroom-sublabel { color: var(--green); }
+  .dealroom-cell.neg .dealroom-sublabel { color: var(--accent); }
+  .dealroom-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; display: block; margin-bottom: 6px; }
+  .dealroom-cell.pos .dealroom-num { color: var(--green); }
+  .dealroom-cell.neg .dealroom-num { color: var(--accent); }
+  .dealroom-label { font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
+
+  /* CLOSING */
+  .closing { background: var(--ink); color: var(--paper); padding: 52px 40px; margin: 0 -32px; }
+  .closing-inner { max-width: 640px; margin: 0 auto; }
+  .closing h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; font-style: italic; margin-bottom: 24px; color: var(--gold); }
+  .closing p { font-size: 16px; line-height: 1.8; color: rgba(247,244,238,0.75); margin-bottom: 18px; }
+  .closing p:last-child { margin-bottom: 0; }
+  .closing p strong { color: var(--paper); font-weight: 500; }
+  .closing-final-wrap { margin: 48px -40px -52px; background: var(--gold); padding: 52px 40px; text-align: center; }
+  .closing-final-inner { max-width: 520px; margin: 0 auto; }
+  .closing-final-line1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .closing-final-line2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2vw, 18px); font-weight: 300; font-style: italic; color: rgba(26,23,20,0.65); line-height: 1.6; }
+  .closing-final-rule { width: 40px; height: 2px; background: rgba(26,23,20,0.25); margin: 24px auto; }
+
+  .article-footer { max-width: 820px; margin: 0 auto; padding: 28px 32px 0; border-top: 1px solid var(--rule); margin-top: 40px; }
+  .footer-sources { font-size: 12px; color: var(--ink-muted); line-height: 1.7; }
+  .footer-note { font-size: 12px; color: var(--ink-muted); font-style: italic; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rule); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 48px 24px 40px; }
+    .article-body { padding: 0 20px 60px; }
+    .closing { padding: 40px 24px; margin: 0 -20px; }
+    .dealroom-grid { grid-template-columns: 1fr; }
+
+    .loop-diagram { flex-direction: column; gap: 8px; }
+    .loop-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-label">Tecnologia · Strategia · Europa · Aprile 2026</div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Semiconduttori & Sovranità Tecnologica</div>
+    <h1>L'Europa sta costruendo<br>la prossima <em>ASML?</em></h1>
+    <p class="hero-sub">C'è una professoressa di fisica a Bergen che potrebbe aver risolto uno dei problemi più difficili dell'industria tecnologica globale.</p>
+    <div class="hero-meta">Di Giuseppe Venezia &nbsp;·&nbsp; Lettura: circa 9 minuti</div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="opening">
+    <p class="opening-lead">Si chiama Bodil Holst. Ha un PhD a Cambridge. È una professoressa che ha trascorso vent'anni a studiare il comportamento degli atomi su scala nanometrica. Non parliamo di una founder seriale, non c'è traccia di background presso una big tech. Parliamo di una scienziata europea che ha dedicato la carriera a capire cose che quasi nessuno capisce, in un laboratorio universitario che pochi conoscono.</p>
+    <p class="opening-body">Nel 2023, insieme al fisico spagnolo Adrià Salvador Palau, ha fondato Lace Lithography. In meno di tre anni ha raccolto oltre €51 milioni. A marzo 2026 ha chiuso un round Series A da €34,5 milioni guidato da Atomico — il principale fondo venture tecnologico europeo — con la partecipazione di M12, il braccio venture di Microsoft.</p>
+    <p class="opening-body">L'idea alla base di Lace è radicale nella sua semplicità: per costruire i chip del futuro, bisogna smettere di usare la luce.</p>
+    <div class="disclaimer">
+      <p>⚑ Quando ho letto questa storia per la prima volta, devo ammettere che ci ho capito molto poco; nel contempo mi ha incuriosito moltissimo. Ahimè non sono un fisico, ma solo un operatore dell'ecosistema tech europeo, che ha cercato di capire perché questa storia conta. Quello che segue è il risultato di un percorso di approfondimento che mi fa piacere condividere e che spero i non tecnici troveranno utile.</p>
+    </div>
+    <p class="tesi">Di questa storia colpisce non solo la tecnologia, ma cosa ci dice dell'Europa — di cosa siamo capaci di costruire, e di quanto siamo capaci di mantenerlo.</p>
+  </div>
+
+  <!-- S1 -->
+  <div class="section" id="s1">
+    <div class="section-header"><span class="section-num">01</span><span class="section-title">Premessa: i chip e la luce</span></div>
+    <p>Ogni chip che esiste — installato nei nostri telefoni, nei server che fanno girare i modelli AI, nelle auto elettriche, nei satelliti — viene letteralmente <em>stampato</em>. Il processo si chiama litografia: si proietta un fascio di luce attraverso una maschera con il disegno del circuito, come il negativo di una fotografia, e la luce incide quel pattern sul silicio. Questo processo si ripete cento volte o più, strato su strato, finché sul wafer non compaiono miliardi di strutture microscopiche interconnesse: i transistor.</p>
+    <p>I transistor sono interruttori elettrici minuscoli. Si accendono e si spengono miliardi di volte al secondo. Sono loro che "fanno i calcoli". La regola fondamentale è semplice: <strong>più transistor su un chip, più il chip è potente e veloce</strong>. E per metterne di più sullo stesso spazio, devi farli sempre più piccoli.</p>
+    <p>Questa relazione ha un nome: la <strong>Legge di Moore</strong>. Nel 1965, Gordon Moore, co-fondatore di Intel, "profetizzò" che il numero di transistor sui chip sarebbe potuto raddoppiare ogni due anni, a costo costante. Non una legge fisica, ma un'osservazione empirica diventata profezia per sessant'anni — il motore di internet, degli smartphone, del GPS, dell'AI generativa.</p>
+    <p>Il problema è che per continuare a rimpicciolire i transistor, devi continuare a rimpicciolire la larghezza del "pennello" con cui li disegni. <strong>Il pennello che oggi tutti usano è la luce.</strong></p>
+  </div>
+
+  <!-- S2 -->
+  <div class="section" id="s2">
+    <div class="section-header"><span class="section-num">02</span><span class="section-title">Il problema del pennello</span></div>
+    <p>Immaginate di dover disegnare una linea sottilissima. Se usate un pennello largo un centimetro, è impossibile disegnare una linea da un millimetro. Per disegnare più sottile, serve un pennello più sottile.</p>
+    <p>La luce funziona esattamente così. Ha una larghezza intrinseca — la lunghezza d'onda — e non potete incidere un dettaglio più piccolo di quella larghezza. La luce sbava, esattamente come il pennello. <strong>Questo non è un limite tecnologico. È fisica.</strong></p>
+    <p>Per decenni l'industria ha risolto questo problema usando luci sempre più "strette" — dalla luce visibile all'ultravioletto, poi all'ultravioletto profondo, poi all'ultravioletto estremo EUV. Ogni salto ha richiesto anni di ricerca e miliardi di investimento. Oggi le macchine più avanzate usano luce a 13,5 nanometri. Per riferimento: un nanometro è un miliardesimo di metro, un capello umano è circa 80.000 nanometri.</p>
+    <p>E siamo giunti quasi al limite. La legge di Moore — quella progressione costante che abbiamo dato per scontata per sessant'anni — potrebbe essere destinata a fermarsi.</p>
+
+    <div class="brush-diagram">
+      <div class="brush-col"><div class="brush-tip" style="height:68px;opacity:0.22;width:62px"></div><div class="brush-nm">400 nm</div><div class="brush-era">Luce visibile<br>anni '70–'80</div></div>
+      <div class="brush-col"><div class="brush-tip" style="height:54px;opacity:0.42;width:42px"></div><div class="brush-nm">248 nm</div><div class="brush-era">UV profondo<br>anni '90</div></div>
+      <div class="brush-col"><div class="brush-tip" style="height:42px;opacity:0.62;width:26px"></div><div class="brush-nm">193 nm</div><div class="brush-era">UV profondo<br>anni 2000</div></div>
+      <div class="brush-col"><div class="brush-tip" style="height:30px;opacity:0.85;width:13px"></div><div class="brush-nm">13,5 nm</div><div class="brush-era">EUV — ASML<br>oggi</div></div>
+      <div class="brush-col"><div class="brush-tip" style="height:18px;width:3px"></div><div class="brush-nm">0,1 nm</div><div class="brush-era">Atomi — Lace<br>prossimo</div></div>
+    </div>
+    <p class="diagram-caption">Il "pennello" litografico nel tempo: più è sottile, più piccoli possono essere i transistor.</p>
+  </div>
+
+  <!-- S3 -->
+  <div class="section" id="s3">
+    <div class="section-header"><span class="section-num">03</span><span class="section-title">ASML: il monopolio che regge il mondo</span></div>
+    <p>ASML è un'azienda olandese, non nota al grande pubblico, che vale in borsa più di qualsiasi altra società europea. È l'unico produttore al mondo delle macchine EUV — quelle che oggi stampano i chip più avanzati del pianeta. <strong>Unico. Nel mondo.</strong></p>
+
+    <div class="stat-grid">
+      <div class="stat-cell"><span class="stat-num">1</span><div class="stat-label">produttore EUV al mondo</div></div>
+      <div class="stat-cell"><span class="stat-num">€380M</span><div class="stat-label">costo per macchina. La prossima generazione supererà i €700 milioni</div></div>
+      <div class="stat-cell"><span class="stat-num">30 anni</span><div class="stat-label">dall'idea alla produzione di massa industriale</div></div>
+      <div class="stat-cell"><span class="stat-num">$6B+</span><div class="stat-label">investiti da Intel, TSMC e Samsung nel 2012 per tenerla in vita</div></div>
+    </div>
+
+    <p>La storia di ASML è lunga e istruttiva. Nasce nel 1984 come joint venture di Philips e ASM International, in un capannone nel parcheggio di Philips a Eindhoven. Quasi un progetto indesiderato. I concorrenti erano Nikon e Canon, colossi giapponesi con risorse enormi. ASML era la startup squattrinata che cercava di sopravvivere.</p>
+    <p>Ci vollero una scommessa su un nuovo paradigma e trent'anni di investimento quasi cieco in una tecnologia che quasi nessuno credeva sarebbe mai diventata industriale. Nel 2012, Intel, TSMC e Samsung investirono complessivamente oltre $6 miliardi in ASML per tenerla in vita — un atto di sopravvivenza collettiva.</p>
+    <p>La prima macchina EUV fu consegnata nel 2013. Andò in produzione di massa solo nel 2019. Quando funzionò, ASML era l'unica al mondo in grado di costruirla. Nikon e Canon avevano abbandonato la corsa. <strong>Il monopolio non fu conquistato. Fu il risultato di trent'anni di pazienza industriale.</strong></p>
+    <p>Oggi ogni chip avanzato del pianeta passa per una macchina ASML — creando una dipendenza geopolitica enorme: gli USA hanno fatto pressione sull'Olanda per bloccare le esportazioni verso la Cina. Ma anche ASML ha un tetto. Il settore lo sa da anni. E da anni sta lavorando a una risposta.</p>
+  </div>
+
+  <!-- S4 -->
+  <div class="section" id="s4">
+    <div class="section-header"><span class="section-num">04</span><span class="section-title">Una corsa globale con in palio il futuro dei chip</span></div>
+    <p>Quando un mercato vale centinaia di miliardi e un monopolio mostra i suoi limiti fisici, il capitale si muove. E si è mosso, in modo massiccio — quasi tutto fuori dall'Europa.</p>
+
+    <div class="competitor-list">
+      <div class="competitor-row">
+        <div class="competitor-flag">USA</div>
+        <div class="competitor-body">
+          <div class="competitor-name">xLight</div>
+          <div class="competitor-desc">Sviluppa laser a elettroni liberi basati su acceleratori di particelle compatti. Alla guida come executive chairman c'è Pat Gelsinger, ex CEO di Intel. Il governo americano ha già iniettato 150 milioni di dollari di fondi pubblici dal CHIPS Act — è la scommessa geopolitica degli USA per ridurre la dipendenza da ASML.</div>
+        </div>
+        <span class="competitor-funding tag-us">$150M gov</span>
+      </div>
+      <div class="competitor-row">
+        <div class="competitor-flag">USA</div>
+        <div class="competitor-body">
+          <div class="competitor-name">Substrate</div>
+          <div class="competitor-desc">Usa raggi X generati da acceleratori di particelle e dichiara di aver già prodotto pattern con 12 nanometri di dimensione critica. Backed da Founders Fund di Peter Thiel e In-Q-Tel, il fondo della CIA. L'obiettivo dichiarato è sfidare non solo ASML, ma TSMC nella produzione americana entro il 2028.</div>
+        </div>
+        <span class="competitor-funding tag-us">$100M VC</span>
+      </div>
+      <div class="competitor-row">
+        <div class="competitor-flag">Giappone</div>
+        <div class="competitor-body">
+          <div class="competitor-name">Canon</div>
+          <div class="competitor-desc">Ha già consegnato il suo primo sistema di nanoimprint al Texas Institute for Electronics nel settembre 2024 — l'unico tra i competitor ad avere uno strumento fisicamente nelle mani di un cliente. Il nanoimprint trasferisce il pattern meccanicamente, senza luce. Ma le maschere si degradano per usura ripetuta e secondo gli analisti non è chiaro se il problema abbia soluzione industriale.</div>
+        </div>
+        <span class="competitor-funding tag-jp">Consegnato</span>
+      </div>
+      <div class="competitor-row">
+        <div class="competitor-flag">Cina</div>
+        <div class="competitor-body">
+          <div class="competitor-name">SiCarrier, Huawei e altri</div>
+          <div class="competitor-desc">Bloccata dall'accesso alle macchine EUV di ASML per effetto delle restrizioni americane, la Cina sta investendo miliardi in percorsi alternativi. I risultati sono ancora molto distanti dalla frontiera tecnologica, ma la determinazione non mostra segni di rallentamento.</div>
+        </div>
+        <span class="competitor-funding tag-cn">Miliardi</span>
+      </div>
+      <div class="competitor-row lace">
+        <div class="competitor-flag">Europa</div>
+        <div class="competitor-body">
+          <div class="competitor-name">Lace Lithography</div>
+          <div class="competitor-desc">L'unico approccio che abbandona completamente il paradigma fotonico, sostituendo la luce con atomi di elio neutri. Nata dalla ricerca accademica di una professoressa dell'Università di Bergen, validata da IMEC, finanziata da Atomico con la partecipazione di Microsoft M12.</div>
+        </div>
+        <span class="competitor-funding tag-eu">€51M privato</span>
+      </div>
+    </div>
+
+    <p>C'è un filo comune tra quasi tutti questi approcci: usano ancora la luce. Canon è eccezione parziale — ma ha limiti strutturali irrisolti. Lace è l'unico approccio che abbandona completamente il paradigma fotonico.</p>
+
+    <div class="bridge-box">
+      <p>Guardare la corsa globale da fuori aiuta a capire una cosa: <strong>non si tratta solo di tecnologia</strong>. Si tratta di chi decide di trattare i semiconduttori come infrastruttura strategica nazionale — e chi invece si affida al mercato. Quella scelta, fatta oggi, determinerà chi controllerà il collo di bottiglia del prossimo decennio. E l'Europa, su questo, ha ancora una risposta parziale.</p>
+    </div>
+  </div>
+
+  <!-- S5 -->
+  <div class="section" id="s5">
+    <div class="section-header"><span class="section-num">05</span><span class="section-title">Gli atomi (e l'AI) possono superare la legge di Moore</span></div>
+    <p>L'idea di Bodil Holst è diversa da tutte le proposte alternative: sostituire completamente la luce con un fascio di atomi di elio neutri.</p>
+    <p>Perché gli atomi? Gli atomi, a differenza dei fotoni, <strong>non hanno il limite della diffrazione</strong>. Ricordate il pennello che sbavava? Gli atomi non sbavano. Il fascio di Lace misura circa 0,1 nanometri — 135 volte più stretto della luce EUV di ASML. Con un pennello così sottile, si disegnano transistor dieci volte più piccoli. Chip enormemente più potenti, consumi drasticamente inferiori.</p>
+    <p>La fisica regge. Tuttavia c'era un secondo problema che per anni aveva bloccato chiunque: come si progetta la maschera quando usi gli atomi? Gli atomi hanno massa, interagiscono tra loro, rimbalzano in modi complessi. La matematica era considerata praticamente intrattabile.</p>
+    <p>Lace ha risolto questo problema con un <strong>algoritmo proprietario basato su AI</strong> che accelera quel calcolo di oltre 15 ordini di grandezza. Non un'ottimizzazione — un cambio di categoria. Da anni di calcolo a secondi.</p>
+
+    <div class="loop-diagram">
+      <div class="loop-node">Algoritmo AI<br>di Lace</div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-node highlight">Chip più<br>potenti</div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-node">Modelli AI<br>più avanzati</div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-node">Algoritmi<br>più capaci</div>
+    </div>
+    <p class="diagram-caption" style="margin-top:8px">Il loop: l'AI usata per progettare i chip che faranno girare AI più potente.</p>
+
+    <p style="margin-top:20px"><strong>Il limite storico della litografia atomica non è la precisione, ma la velocità</strong> — i wafer lavorati in un'ora. Lace punta a risolverlo con fasci paralleli, ma è una sfida ancora aperta. Obiettivo: sistema funzionante in un impianto pilota entro il 2029, commercializzazione nel 2031 — roadmap validata da IMEC.</p>
+  </div>
+
+  <!-- S6 -->
+  <div class="section" id="s6">
+    <div class="section-header"><span class="section-num">06</span><span class="section-title">L'Europa è piena di talento. Ma siamo in grado di valorizzarlo?</span></div>
+    <p>Il report sul deep tech europeo pubblicato a marzo 2026 da Dealroom, Lakestar e Walden Catalyst fotografa bene la tensione strutturale in cui si muove Lace — un problema sollevato chiaramente dai dati.</p>
+
+    <div class="dealroom-grid">
+      <div class="dealroom-cell pos"><div class="dealroom-sublabel">Punti di forza</div><span class="dealroom-num">$20,3B</span><div class="dealroom-label">investiti nel deep tech europeo nel 2025, record storico pari al 32% di tutto il venture capital</div></div>
+      <div class="dealroom-cell pos"><div class="dealroom-sublabel">Punti di forza</div><span class="dealroom-num">30%</span><div class="dealroom-label">delle migliori università deep tech al mondo sono europee. Il continente produce il doppio dei laureati STEM rispetto agli Stati Uniti</div></div>
+      <div class="dealroom-cell neg"><div class="dealroom-sublabel">Punti deboli</div><span class="dealroom-num">70%</span><div class="dealroom-label">dei finanziamenti nelle fasi avanzate di sviluppo proviene da investitori non europei</div></div>
+      <div class="dealroom-cell neg"><div class="dealroom-sublabel">Punti deboli</div><span class="dealroom-num">80%</span><div class="dealroom-label">del valore delle exit viene catturato da acquirenti statunitensi. I mercati pubblici europei nel 2025 sono rimasti inattivi per il deep tech</div></div>
+    </div>
+
+    <p>Il problema non è il seed. È lo scale-up. Atomico può fare un round da €34 milioni — e lo ha fatto. Chi farà il round da €300 milioni quando servirà? E chi quello da €1 miliardo? Portare una tecnologia dalla prototipazione alla produzione di massa richiede un capitale che in Europa quasi non esiste nel settore privato. E storicamente, quando quel capitale arriva dall'estero, arriva con condizioni che spostano quartier generale, posti di lavoro ad alto valore, accumulazione di know-how industriale.</p>
+  </div>
+
+  <!-- S7 -->
+  <div class="section" id="s7">
+    <div class="section-header"><span class="section-num">07</span><span class="section-title">Il ruolo del Chips Act europeo</span></div>
+    <p>L'Europa non è rimasta ferma. Il Chips Act europeo esiste: entrato in vigore nel settembre 2023, con l'obiettivo di mobilitare €43 miliardi e portare la quota europea nella produzione mondiale di chip dal 10% al 20% entro il 2030.</p>
+    <p>Il problema è che la Corte dei Conti Europea ha già emesso il suo verdetto in un report del 2025: è molto improbabile che quell'obiettivo venga raggiunto. La Commissione gestisce direttamente solo il 5% dei fondi — circa €4,5 miliardi. Il resto dipende dagli Stati membri e dal settore privato. Per confronto, i principali produttori mondiali di chip hanno investito €405 miliardi in soli tre anni tra il 2020 e il 2023.</p>
+    <p>Ma c'è un secondo problema, più sottile. Il Chips Act è orientato principalmente alla ricerca e ai pilot line — fasi già presidiate. Non è uno strumento progettato per accompagnare un'azienda dalla prototipazione alla scala industriale. Gli Stati Uniti hanno aumentato il credito d'imposta per gli investimenti in semiconduttori al 35% per i nuovi stabilimenti. <strong>L'Europa non ha nulla di equivalente.</strong></p>
+    <p>La Commissione sta lavorando a un Chips Act 2.0 (atteso per maggio) con l'ambizione di mobilitare €200 miliardi entro il 2035. È la direzione giusta. Ma Lace potrebbe aver bisogno del capitale prima che questa architettura sia pronta.</p>
+
+    <div class="pull-quote">La mia lettura è che per tecnologie come questa il solo privato non basta. I tempi e i rischi del deep tech hardware sono incompatibili con i ritorni attesi dal venture capital tradizionale. Serve anche il pubblico, con strumenti diversi da quelli che esistono oggi.</div>
+  </div>
+
+  <!-- S8 -->
+  <div class="section" id="s8">
+    <div class="section-header"><span class="section-num">08</span><span class="section-title">Quello che Lace deve ancora dimostrare</span></div>
+    <p>Vale la pena essere espliciti: a oggi Lace è una giovane promessa. Non ha ancora stampato chip in produzione industriale. I dati tecnici che contano davvero non ci sono ancora. IMEC inizierà i benchmark di validazione nel 2026. La roadmap commerciale punta al 2031 — ma tra Bergen e uno stabilimento industriale a pieno regime c'è un percorso che ASML stessa impiegò quindici anni a percorrere, e quasi non ce la fece.</p>
+
+    <div class="rischi-wrap">
+      <div class="rischio-item">
+        <div class="rischio-label">La velocità</div>
+        <div class="rischio-text">Il limite storico della litografia atomica non è la precisione — è la velocità. Quanti wafer riesce a lavorare in un'ora? ASML oggi ne processa oltre 200 con EUV. Lace punta a risolvere il problema con fasci paralleli — più sorgenti atomiche che lavorano simultaneamente — ma è una sfida ingegneristica ancora aperta, senza dati pubblici di throughput.</div>
+      </div>
+      <div class="rischio-item">
+        <div class="rischio-label">La sorgente</div>
+        <div class="rischio-text">La sorgente di luce fu l'incubo ingegneristico di ASML per vent'anni: instabile, troppo debole, impossibile da industrializzare. Produrre un fascio di atomi di elio sufficientemente stabile e intenso per la produzione di massa è la sfida equivalente di Lace. Non è ancora risolta.</div>
+      </div>
+      <div class="rischio-item">
+        <div class="rischio-label">L'ecosistema</div>
+        <div class="rischio-text">Non si tratta solo di costruire una macchina. La litografia richiede un'intera filiera: i resist — le sostanze chimiche fotosensibili sul wafer — devono essere riprogettati per reagire agli atomi invece che alla luce. I processi di produzione, i fornitori, i materiali. Lace sta iniziando a lavorare con i produttori di resist nel 2026. È un ecosistema da costruire quasi da zero.</div>
+      </div>
+    </div>
+
+    <p>Il rischio di fallimento è reale e concreto: un ostacolo tecnico non ancora identificato, l'impossibilità di trovare capitale nelle fasi successive, la concorrenza di approcci alternativi, o la brutalità statistica del deep tech hardware, dove la maggioranza dei progetti non arriva mai alla scala industriale.</p>
+    <p><strong>Tenere questi rischi in mente non ridimensiona la storia e il suo potenziale.</strong></p>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="closing-inner">
+      <h2>L'Europa sta quindi costruendo la prossima ASML?</h2>
+      <p>Se la tecnologia di Lace sarà in grado di mantenere le sue promesse — e questo oggi non è affatto scontato — i soldi arriveranno. La tecnologia killer attira capitale, sempre. <strong>La domanda non è se arriveranno. È da dove.</strong></p>
+      <p>ASML quasi fallì nel 2012 e fu salvata da Intel, TSMC e Samsung — i suoi stessi clienti — con oltre $6 miliardi, con una logica strategica prima ancora che finanziaria. Rimase europea quasi per inerzia, non per design. Con Lace potrebbe andare diversamente: il contesto oggi è più consapevole. Tutti sanno cosa significa perdere il controllo di un'infrastruttura critica.</p>
+      <p>Ma la consapevolezza da sola non basta. Serve capitale paziente, con orizzonti decennali e una logica strategica. In Europa quel capitale — pubblico, coordinato, disposto ad aspettare — è ancora largamente assente nel passaggio dalla ricerca alla scala industriale. Il Chips Act 2.0 va nella giusta direzione.</p>
+      <p>Il report Dealroom ci dice che l'Europa ha il talento, le università, i ricercatori. Ne abbiamo la prova in un laboratorio di Bergen. Quello che non siamo in grado di prevedere è se avremo la capacità di costruire l'infrastruttura industriale duratura per valorizzarlo.</p>
+
+      <div class="closing-final-wrap">
+        <div class="closing-final-inner">
+          <div class="closing-final-line1">Lace sarà la regola<br>o l'eccezione?</div>
+          <div class="closing-final-rule"></div>
+          <div class="closing-final-line2">È la domanda che vale la pena seguire nei prossimi anni.<br>Molto più di qualsiasi trimestrale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="article-footer">
+  <div class="footer-sources"><strong>Fonti:</strong> EU-Startups · Reuters · Tom's Hardware · Atomico · ASML · IBM Research · The 2026 European Deep Tech Report (Dealroom, Lakestar, Walden Catalyst) · SemiAnalysis · TrendForce · European Court of Auditors Special Report 12/2025 · SEMI Europe Chips Act Report · European Chips Act (ec.europa.eu)</div>
+  <div class="footer-note">Se avete trovato errori o imprecisioni, sono i benvenuti nei commenti.</div>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.section').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
