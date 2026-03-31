@@ -172,20 +172,20 @@
 
   <div class="opening">
     <p class="opening-lead">Si chiama Bodil Holst. Ha un PhD a Cambridge. È una professoressa che ha trascorso vent'anni a studiare il comportamento degli atomi su scala nanometrica. Non parliamo di una founder seriale, non c'è traccia di background presso una big tech. Parliamo di una scienziata europea che ha dedicato la carriera a capire cose che quasi nessuno capisce, in un laboratorio universitario che pochi conoscono.</p>
-    <p class="opening-body">Nel 2023, insieme al fisico spagnolo Adrià Salvador Palau, ha fondato Lace Lithography. In meno di tre anni ha raccolto oltre €51 milioni. A marzo 2026 ha chiuso un round Series A da €34,5 milioni guidato da Atomico — il principale fondo venture tecnologico europeo — con la partecipazione di M12, il braccio venture di Microsoft.</p>
+    <p class="opening-body">Nel 2023, insieme al fisico spagnolo Adrià Salvador Palau, ha fondato Lace Lithography. In meno di tre anni ha raccolto oltre €51 milioni. A marzo 2026 ha chiuso un round Series A da €34,5 milioni guidato da Atomico, il principale fondo venture tecnologico europeo, con la partecipazione di M12, il braccio venture di Microsoft.</p>
     <p class="opening-body">L'idea alla base di Lace è radicale nella sua semplicità: per costruire i chip del futuro, bisogna smettere di usare la luce.</p>
     <div class="disclaimer">
-      <p>⚑ Quando ho letto questa storia per la prima volta, devo ammettere che ci ho capito molto poco; nel contempo mi ha incuriosito moltissimo. Ahimè non sono un fisico, ma solo un operatore dell'ecosistema tech europeo, che ha cercato di capire perché questa storia conta. Quello che segue è il risultato di un percorso di approfondimento che mi fa piacere condividere e che spero i non tecnici troveranno utile.</p>
+      <p>⚑ Quando ho letto questa storia per la prima volta, devo ammettere che ci ho capito molto poco; nel contempo mi ha incuriosito profondamente. Ahimè non sono un fisico, ma solo un operatore dell'ecosistema tech europeo, che ha cercato di capire perché questa storia conta. Quello che segue è il risultato di un percorso di approfondimento che mi fa piacere condividere e che spero i non tecnici troveranno utile.</p>
     </div>
-    <p class="tesi">Di questa storia colpisce non solo la tecnologia, ma cosa ci dice dell'Europa — di cosa siamo capaci di costruire, e di quanto siamo capaci di mantenerlo.</p>
+    <p class="tesi">Di questa storia colpisce non solo la tecnologia, ma cosa ci dice dell'Europa — di cosa siamo capaci di costruire e di quanto siamo capaci di mantenerlo.</p>
   </div>
 
   <!-- S1 -->
   <div class="section" id="s1">
     <div class="section-header"><span class="section-num">01</span><span class="section-title">Premessa: i chip e la luce</span></div>
-    <p>Ogni chip che esiste — installato nei nostri telefoni, nei server che fanno girare i modelli AI, nelle auto elettriche, nei satelliti — viene letteralmente <em>stampato</em>. Il processo si chiama litografia: si proietta un fascio di luce attraverso una maschera con il disegno del circuito, come il negativo di una fotografia, e la luce incide quel pattern sul silicio. Questo processo si ripete cento volte o più, strato su strato, finché sul wafer non compaiono miliardi di strutture microscopiche interconnesse: i transistor.</p>
+    <p>Ogni chip che esiste — installato nei nostri telefoni, nei server che fanno girare i modelli AI, nelle auto elettriche, nei satelliti — viene letteralmente <em>stampato</em>. Il processo si chiama litografia: si proietta un fascio di luce attraverso una maschera con il disegno del circuito, come il negativo di una fotografia, e la luce incide quel pattern sul silicio ricoperto di sostanze chimiche fotosensibili. Questo processo si ripete cento volte o più, strato su strato, finché sul wafer non compaiono miliardi di strutture microscopiche interconnesse: i transistor.</p>
     <p>I transistor sono interruttori elettrici minuscoli. Si accendono e si spengono miliardi di volte al secondo. Sono loro che "fanno i calcoli". La regola fondamentale è semplice: <strong>più transistor su un chip, più il chip è potente e veloce</strong>. E per metterne di più sullo stesso spazio, devi farli sempre più piccoli.</p>
-    <p>Questa relazione ha un nome: la <strong>Legge di Moore</strong>. Nel 1965, Gordon Moore, co-fondatore di Intel, "profetizzò" che il numero di transistor sui chip sarebbe potuto raddoppiare ogni due anni, a costo costante. Non una legge fisica, ma un'osservazione empirica diventata profezia per sessant'anni — il motore di internet, degli smartphone, del GPS, dell'AI generativa.</p>
+    <p>Questa relazione ha un nome, è la <strong>Legge di Moore</strong>. Nel 1965, Gordon Moore, co-fondatore di Intel, "profetizzò" che il numero di transistor sui chip sarebbe potuto raddoppiare ogni due anni, a costo costante. Non una legge fisica, ma un'osservazione empirica diventata profezia per sessant'anni — il motore di internet, degli smartphone, del GPS, dell'AI generativa.</p>
     <p>Il problema è che per continuare a rimpicciolire i transistor, devi continuare a rimpicciolire la larghezza del "pennello" con cui li disegni. <strong>Il pennello che oggi tutti usano è la luce.</strong></p>
   </div>
 
@@ -193,8 +193,8 @@
   <div class="section" id="s2">
     <div class="section-header"><span class="section-num">02</span><span class="section-title">Il problema del pennello</span></div>
     <p>Immaginate di dover disegnare una linea sottilissima. Se usate un pennello largo un centimetro, è impossibile disegnare una linea da un millimetro. Per disegnare più sottile, serve un pennello più sottile.</p>
-    <p>La luce funziona esattamente così. Ha una larghezza intrinseca — la lunghezza d'onda — e non potete incidere un dettaglio più piccolo di quella larghezza. La luce sbava, esattamente come il pennello. <strong>Questo non è un limite tecnologico. È fisica.</strong></p>
-    <p>Per decenni l'industria ha risolto questo problema usando luci sempre più "strette" — dalla luce visibile all'ultravioletto, poi all'ultravioletto profondo, poi all'ultravioletto estremo EUV. Ogni salto ha richiesto anni di ricerca e miliardi di investimento. Oggi le macchine più avanzate usano luce a 13,5 nanometri. Per riferimento: un nanometro è un miliardesimo di metro, un capello umano è circa 80.000 nanometri.</p>
+    <p>La luce funziona esattamente così. Ha una larghezza intrinseca (la lunghezza d'onda) e non è possibile incidere un dettaglio più piccolo di quella larghezza. La luce sbava, esattamente come il pennello. <strong>Questo non è un limite tecnologico. È fisica.</strong></p>
+    <p>Per decenni l'industria ha risolto questo problema usando luci sempre più "strette" — dalla luce visibile all'ultravioletto, poi all'ultravioletto profondo, poi all'ultravioletto estremo, EUV. Ogni salto ha richiesto anni di ricerca e miliardi di investimento. Oggi le macchine più avanzate usano luce a 13,5 nanometri. Per riferimento: un nanometro è un miliardesimo di metro, un capello umano è circa 80.000 nanometri.</p>
     <p>E siamo giunti quasi al limite. La legge di Moore — quella progressione costante che abbiamo dato per scontata per sessant'anni — potrebbe essere destinata a fermarsi.</p>
 
     <div class="brush-diagram">
@@ -251,7 +251,7 @@
         <div class="competitor-flag">Giappone</div>
         <div class="competitor-body">
           <div class="competitor-name">Canon</div>
-          <div class="competitor-desc">Ha già consegnato il suo primo sistema di nanoimprint al Texas Institute for Electronics nel settembre 2024 — l'unico tra i competitor ad avere uno strumento fisicamente nelle mani di un cliente. Il nanoimprint trasferisce il pattern meccanicamente, senza luce. Ma le maschere si degradano per usura ripetuta e secondo gli analisti non è chiaro se il problema abbia soluzione industriale.</div>
+          <div class="competitor-desc">Ha già consegnato il suo primo sistema di nanoimprint al Texas Institute for Electronics nel settembre 2024 — l'unico tra i competitor ad avere uno strumento fisicamente nelle mani di un cliente. Il nanoimprint trasferisce il pattern meccanicamente, senza luce. Ma le maschere si degradano per usura ripetuta e secondo gli analisti non è chiaro se il problema abbia soluzione su scala industriale.</div>
         </div>
         <span class="competitor-funding tag-jp">Consegnato</span>
       </div>
@@ -276,7 +276,7 @@
     <p>C'è un filo comune tra quasi tutti questi approcci: usano ancora la luce. Canon è eccezione parziale — ma ha limiti strutturali irrisolti. Lace è l'unico approccio che abbandona completamente il paradigma fotonico.</p>
 
     <div class="bridge-box">
-      <p>Guardare la corsa globale da fuori aiuta a capire una cosa: <strong>non si tratta solo di tecnologia</strong>. Si tratta di chi decide di trattare i semiconduttori come infrastruttura strategica nazionale — e chi invece si affida al mercato. Quella scelta, fatta oggi, determinerà chi controllerà il collo di bottiglia del prossimo decennio. E l'Europa, su questo, ha ancora una risposta parziale.</p>
+      <p>Guardare la corsa globale da fuori aiuta a capire una cosa: <strong>non si tratta solo di tecnologia</strong>. Si tratta di chi decide di trattare i semiconduttori come infrastruttura strategica nazionale — e chi invece si affida al mercato. Quella scelta, fatta oggi, determinerà chi controllerà un asset nevralgico nel prossimo decennio. E l'Europa, su questo, ha ancora una risposta parziale.</p>
     </div>
   </div>
 
@@ -285,7 +285,7 @@
     <div class="section-header"><span class="section-num">05</span><span class="section-title">Gli atomi (e l'AI) possono superare la legge di Moore</span></div>
     <p>L'idea di Bodil Holst è diversa da tutte le proposte alternative: sostituire completamente la luce con un fascio di atomi di elio neutri.</p>
     <p>Perché gli atomi? Gli atomi, a differenza dei fotoni, <strong>non hanno il limite della diffrazione</strong>. Ricordate il pennello che sbavava? Gli atomi non sbavano. Il fascio di Lace misura circa 0,1 nanometri — 135 volte più stretto della luce EUV di ASML. Con un pennello così sottile, si disegnano transistor dieci volte più piccoli. Chip enormemente più potenti, consumi drasticamente inferiori.</p>
-    <p>La fisica regge. Tuttavia c'era un secondo problema che per anni aveva bloccato chiunque: come si progetta la maschera quando usi gli atomi? Gli atomi hanno massa, interagiscono tra loro, rimbalzano in modi complessi. La matematica era considerata praticamente intrattabile.</p>
+    <p>La fisica regge. Tuttavia, c'era un secondo problema che per anni aveva bloccato chiunque: come si progetta la maschera quando usi gli atomi? Gli atomi hanno massa, interagiscono tra loro, rimbalzano in modi complessi. La matematica era considerata praticamente intrattabile.</p>
     <p>Lace ha risolto questo problema con un <strong>algoritmo proprietario basato su AI</strong> che accelera quel calcolo di oltre 15 ordini di grandezza. Non un'ottimizzazione — un cambio di categoria. Da anni di calcolo a secondi.</p>
 
     <div class="loop-diagram">
@@ -323,7 +323,7 @@
     <p>L'Europa non è rimasta ferma. Il Chips Act europeo esiste: entrato in vigore nel settembre 2023, con l'obiettivo di mobilitare €43 miliardi e portare la quota europea nella produzione mondiale di chip dal 10% al 20% entro il 2030.</p>
     <p>Il problema è che la Corte dei Conti Europea ha già emesso il suo verdetto in un report del 2025: è molto improbabile che quell'obiettivo venga raggiunto. La Commissione gestisce direttamente solo il 5% dei fondi — circa €4,5 miliardi. Il resto dipende dagli Stati membri e dal settore privato. Per confronto, i principali produttori mondiali di chip hanno investito €405 miliardi in soli tre anni tra il 2020 e il 2023.</p>
     <p>Ma c'è un secondo problema, più sottile. Il Chips Act è orientato principalmente alla ricerca e ai pilot line — fasi già presidiate. Non è uno strumento progettato per accompagnare un'azienda dalla prototipazione alla scala industriale. Gli Stati Uniti hanno aumentato il credito d'imposta per gli investimenti in semiconduttori al 35% per i nuovi stabilimenti. <strong>L'Europa non ha nulla di equivalente.</strong></p>
-    <p>La Commissione sta lavorando a un Chips Act 2.0 (atteso per maggio) con l'ambizione di mobilitare €200 miliardi entro il 2035. È la direzione giusta. Ma Lace potrebbe aver bisogno del capitale prima che questa architettura sia pronta.</p>
+    <p>La Commissione sta lavorando a un Chips Act 2.0 (atteso per maggio) con l'ambizione di mobilitare €200 miliardi entro il 2035. È la direzione giusta. Ma Lace potrebbe aver bisogno del capitale prima che i nuovi fondi diventino disponibili.</p>
 
     <div class="pull-quote">La mia lettura è che per tecnologie come questa il solo privato non basta. I tempi e i rischi del deep tech hardware sono incompatibili con i ritorni attesi dal venture capital tradizionale. Serve anche il pubblico, con strumenti diversi da quelli che esistono oggi.</div>
   </div>
@@ -336,7 +336,7 @@
     <div class="rischi-wrap">
       <div class="rischio-item">
         <div class="rischio-label">La velocità</div>
-        <div class="rischio-text">Il limite storico della litografia atomica non è la precisione — è la velocità. Quanti wafer riesce a lavorare in un'ora? ASML oggi ne processa oltre 200 con EUV. Lace punta a risolvere il problema con fasci paralleli — più sorgenti atomiche che lavorano simultaneamente — ma è una sfida ingegneristica ancora aperta, senza dati pubblici di throughput.</div>
+        <div class="rischio-text">Il limite storico della litografia atomica non è la precisione — è la velocità. Quanti wafer riesce a lavorare in un'ora? ASML oggi ne processa oltre 200 con EUV. Lace punta a risolvere il problema con fasci paralleli — più sorgenti atomiche che lavorano simultaneamente — ma è una sfida ingegneristica ancora aperta, senza dati pubblici sulla resa.</div>
       </div>
       <div class="rischio-item">
         <div class="rischio-label">La sorgente</div>
@@ -344,7 +344,7 @@
       </div>
       <div class="rischio-item">
         <div class="rischio-label">L'ecosistema</div>
-        <div class="rischio-text">Non si tratta solo di costruire una macchina. La litografia richiede un'intera filiera: i resist — le sostanze chimiche fotosensibili sul wafer — devono essere riprogettati per reagire agli atomi invece che alla luce. I processi di produzione, i fornitori, i materiali. Lace sta iniziando a lavorare con i produttori di resist nel 2026. È un ecosistema da costruire quasi da zero.</div>
+        <div class="rischio-text">Non si tratta solo di costruire una macchina. La litografia richiede un'intera filiera: i resist — le sostanze chimiche fotosensibili sul wafer — devono essere riprogettati per reagire agli atomi invece che alla luce. I processi di produzione, i fornitori, i materiali. Lace sta iniziando a lavorare con i produttori di resist da quest'anno. È un ecosistema da costruire quasi da zero.</div>
       </div>
     </div>
 
