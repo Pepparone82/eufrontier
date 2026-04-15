@@ -1,132 +1,186 @@
-This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://eufrontier.eu/</loc>
-<changefreq>daily</changefreq>
-<priority>1.0</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/archivio</loc>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/about</loc>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/europa-segnali-di-rinnovata-sovranita</loc>
-<lastmod>2026-04-13</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/l-incidente-che-ha-creato-l-ai</loc>
-<lastmod>2026-04-11</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/ai-e-tacit-knowledge-nelle-organizzazioni</loc>
-<lastmod>2026-04-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/le-big-tech-sotto-la-pressione-dei-datacenter-da-costruire</loc>
-<lastmod>2026-04-09</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/europa-prossima-asml</loc>
-<lastmod>2026-04-08</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/deutsche-telekom-lancia-in-germania-una-delle-piu-grandi-ai-factory-d-europa</loc>
-<lastmod>2026-04-07</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/google-turboquant</loc>
-<lastmod>2026-04-06</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/l-ai-espansiva</loc>
-<lastmod>2026-04-02</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/eli-lilly-ai-adoption-nel-settore-pharma</loc>
-<lastmod>2026-03-31</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/ridateci-la-gioconda</loc>
-<lastmod>2026-03-29</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/adozione-ai-nelle-pmi</loc>
-<lastmod>2026-03-26</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/lola-l-agente-spagnolo-che-automatizza-il-lavoro-degli-ospedali</loc>
-<lastmod>2026-03-24</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/mistral-forge-uno-small-model-oltre-la-rag</loc>
-<lastmod>2026-03-22</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/le-certificazioni-ai-free</loc>
-<lastmod>2026-03-20</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/come-openclaw-sta-arrivando-nelle-aziende</loc>
-<lastmod>2026-03-18</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/i-licenziamenti-di-massa-e-l-ai-washing</loc>
-<lastmod>2026-03-17</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/ai-vs-non-ai-powered-apps-un-recente-confronto-sulle-performance</loc>
-<lastmod>2026-03-16</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/boring-ai-un-caso-di-automazione-del-ciclo-passivo</loc>
-<lastmod>2026-03-13</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://eufrontier.eu/contenuti/la-luna-di-miele-di-microsoft-e-anthropic</loc>
-<lastmod>2026-03-12</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
+  <url>
+    <loc>https://eufrontier.eu/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/archivio</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/europa-segnali-di-rinnovata-sovranita</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/l-incidente-che-ha-creato-l-ai</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/ai-e-tacit-knowledge-nelle-organizzazioni</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/le-big-tech-sotto-la-pressione-dei-datacenter-da-costruire</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/europa-prossima-asml</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/deutsche-telekom-lancia-in-germania-una-delle-piu-grandi-ai-factory-d-europa</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/google-turboquant</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/l-ai-espansiva</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/eli-lilly-ai-adoption-nel-settore-pharma</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/ridateci-la-gioconda</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/adozione-ai-nelle-pmi</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/lola-l-agente-spagnolo-che-automatizza-il-lavoro-degli-ospedali</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/mistral-forge-uno-small-model-oltre-la-rag</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/le-certificazioni-ai-free</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/come-openclaw-sta-arrivando-nelle-aziende</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/i-licenziamenti-di-massa-e-l-ai-washing</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/ai-vs-non-ai-powered-apps-un-recente-confronto-sulle-performance</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/boring-ai-un-caso-di-automazione-del-ciclo-passivo</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/la-luna-di-miele-di-microsoft-e-anthropic</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/ai-e-robotica-ridisegnano-il-futuro-dell-automazione-industriale</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/nscale-2-miliardi-di-usd-per-il-motore-dell-ai-made-in-eu</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/nuova-collaborazione-strategica-tra-accenture-e-mistral</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/sequoia-sul-futuro-delle-aziende-software</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/ai-shadow</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/hai-mai-provato-a-costruire-una-casa-sulla-sabbia</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/l-approccio-del-permanent-capital-per-l-europa</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/saaspocalypse-e-un-vero-rischio</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eufrontier.eu/contenuti/perche-l-ai-fallisce-in-azienda</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
